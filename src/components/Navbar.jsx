@@ -58,32 +58,32 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-[#6B2D5C]/10' 
+        ? 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-black/10' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20 md:h-24">
           <a href="/" onClick={handleLogoClick} className="flex items-center gap-3 group">
-            <span className="font-cormorant text-2xl italic font-bold text-[#6B2D5C] group-hover:text-[#C04A8A] transition-colors">
+            <span className="font-cormorant text-3xl md:text-4xl italic font-bold text-black group-hover:text-gray-800 transition-colors">
               Gloria C. Martinez
             </span>
           </a>
 
-          <div className="hidden md:flex items-center gap-0">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`relative px-4 py-2 text-sm font-cinzel font-medium transition-all duration-300 tracking-wide ${
+                className={`relative px-5 py-2 text-lg font-cinzel font-semibold transition-all duration-300 tracking-wide ${
                   activeSection === link.href.replace('#', '') && isHomePage
-                    ? 'text-[#C04A8A]'
-                    : 'text-[#2F2F2F]/60 hover:text-[#2F2F2F]'
+                    ? 'text-black'
+                    : 'text-black/60 hover:text-black'
                 }`}
               >
                 {link.name}
                 {activeSection === link.href.replace('#', '') && isHomePage && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#D8B26E] rounded-full"></span>
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-black rounded-full"></span>
                 )}
               </a>
             ))}
@@ -91,25 +91,25 @@ export default function Navbar() {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden relative w-10 h-10 flex items-center justify-center text-[#6B2D5C] hover:text-[#C04A8A] transition-colors"
+            className="md:hidden relative w-12 h-12 flex items-center justify-center text-black hover:text-gray-700 transition-colors"
           >
-            <div className="relative w-5 h-5">
-              <span className={`absolute left-0 w-full h-0.5 bg-current transform transition-all duration-300 ${isMobileMenuOpen ? 'top-2 rotate-45' : 'top-0'}`}></span>
-              <span className={`absolute left-0 top-2 w-full h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-              <span className={`absolute left-0 w-full h-0.5 bg-current transform transition-all duration-300 ${isMobileMenuOpen ? 'top-2 -rotate-45' : 'top-4'}`}></span>
+            <div className="relative w-6 h-6">
+              <span className={`absolute left-0 w-full h-0.5 bg-current transform transition-all duration-300 ${isMobileMenuOpen ? 'top-3 rotate-45' : 'top-0'}`}></span>
+              <span className={`absolute left-0 top-3 w-full h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`absolute left-0 w-full h-0.5 bg-current transform transition-all duration-300 ${isMobileMenuOpen ? 'top-3 -rotate-45' : 'top-6'}`}></span>
             </div>
           </button>
         </div>
 
         <div className={`md:hidden transition-all duration-500 overflow-hidden ${isMobileMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'}`}>
-          <div className="bg-white/98 border border-[#6B2D5C]/10 rounded-2xl shadow-xl mt-3 p-5 backdrop-blur-xl">
+          <div className="bg-white/98 border border-black/10 rounded-2xl shadow-xl mt-3 p-5 backdrop-blur-xl">
             <div className="space-y-1">
               {navLinks.map((link) => (
                 <a key={link.name} href={link.href} onClick={(e) => handleNavClick(e, link.href)}
-                  className={`block px-4 py-3 font-cinzel font-medium transition-all duration-300 rounded-xl tracking-wide ${
+                  className={`block px-5 py-4 font-cinzel font-semibold text-lg transition-all duration-300 rounded-xl tracking-wide ${
                     activeSection === link.href.replace('#', '') && isHomePage
-                      ? 'text-[#C04A8A] bg-[#C04A8A]/5'
-                      : 'text-[#2F2F2F]/60 hover:text-[#2F2F2F]'
+                      ? 'text-black bg-black/5'
+                      : 'text-black/60 hover:text-black hover:bg-black/5'
                   }`}
                 >
                   {link.name}

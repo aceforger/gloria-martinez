@@ -10,12 +10,123 @@ export default function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
-      {/* Soft plum-to-rose gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#6B2D5C]/5 via-[#FAF7F2] to-[#C04A8A]/5"></div>
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/bg.png')" }}
+      ></div>
+      
+      {/* Soft plum-to-rose gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#6B2D5C]/5 via-[#FAF7F2]/40 to-[#C04A8A]/5"></div>
 
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-[#C04A8A]/5 rounded-full blur-[100px]"></div>
       <div className="absolute bottom-20 right-10 w-64 h-64 bg-[#D8B26E]/5 rounded-full blur-[80px]"></div>
+
+      {/* Sunlight rays from top right corner */}
+      <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none">
+        {/* Sun source glow */}
+        <div 
+          className="absolute top-2 right-10 w-[400px] h-[400px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(255,215,0,0.6) 0%, rgba(255,200,0,0.4) 15%, rgba(255,180,0,0.2) 30%, rgba(255,255,255,0.1) 50%, transparent 70%)',
+            filter: 'blur(15px)',
+            animation: 'sunGlow 3s ease-in-out infinite'
+          }}
+        ></div>
+
+        {/* Intense sun core */}
+        <div 
+          className="absolute top-15 right-40 w-[200px] h-[200px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,215,0,0.6) 30%, rgba(255,180,0,0.2) 60%, transparent 100%)',
+            filter: 'blur(8px)',
+            animation: 'sunGlow 2s ease-in-out infinite'
+          }}
+        ></div>
+
+        {/* Main long rays */}
+        <div className="absolute -top-20 -right-20 w-[800px] h-[800px]">
+          {[...Array(12)].map((_, i) => (
+            <div
+              key={`ray-main-${i}`}
+              className="absolute origin-top-right"
+              style={{
+                top: '0',
+                right: '0',
+                width: '800px',
+                height: `${2 + Math.random() * 4}px`,
+                background: `linear-gradient(90deg, rgba(255,215,0,${0.3 - i * 0.02}) 0%, rgba(255,200,0,${0.15 - i * 0.01}) 30%, rgba(255,255,255,${0.08 - i * 0.005}) 60%, transparent 100%)`,
+                transform: `rotate(${-20 + i * 3.5}deg)`,
+                filter: 'blur(1.5px)',
+                animation: `sunRay ${3 + i * 0.6}s ease-in-out infinite`,
+                animationDelay: `${i * 0.3}s`,
+                boxShadow: i < 4 ? '0 0 15px rgba(255,215,0,0.2)' : 'none'
+              }}
+            ></div>
+          ))}
+        </div>
+        
+        {/* Secondary medium rays */}
+        <div className="absolute -top-10 -right-10 w-[500px] h-[500px]">
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={`ray-medium-${i}`}
+              className="absolute origin-top-right"
+              style={{
+                top: '0',
+                right: '0',
+                width: '500px',
+                height: `${1.5 + Math.random() * 2}px`,
+                background: `linear-gradient(90deg, rgba(255,255,255,${0.25 - i * 0.025}) 0%, rgba(255,215,0,${0.12 - i * 0.012}) 40%, transparent 100%)`,
+                transform: `rotate(${-12 + i * 3.2}deg)`,
+                filter: 'blur(1px)',
+                animation: `sunRay ${4 + i * 0.8}s ease-in-out infinite`,
+                animationDelay: `${i * 0.4 + 0.1}s`,
+              }}
+            ></div>
+          ))}
+        </div>
+
+        {/* Fine light rays */}
+        <div className="absolute -top-5 -right-5 w-[300px] h-[300px]">
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={`ray-fine-${i}`}
+              className="absolute origin-top-right"
+              style={{
+                top: '0',
+                right: '0',
+                width: '300px',
+                height: '1px',
+                background: `linear-gradient(90deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,${0.15 - i * 0.008}) 50%, transparent 100%)`,
+                transform: `rotate(${-8 + i * 1.2}deg)`,
+                animation: `sunRayFine ${2 + i * 0.3}s ease-in-out infinite`,
+                animationDelay: `${i * 0.15}s`,
+              }}
+            ></div>
+          ))}
+        </div>
+
+        {/* Light dust particles near sun */}
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={`sun-dust-${i}`}
+            className="absolute rounded-full"
+            style={{
+              width: `${1 + Math.random() * 2}px`,
+              height: `${1 + Math.random() * 2}px`,
+              top: `${-5 + Math.random() * 20}%`,
+              right: `${-5 + Math.random() * 20}%`,
+              backgroundColor: '#FFD700',
+              opacity: Math.random() * 0.6 + 0.2,
+              animation: `floatUp ${2 + Math.random() * 3}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 2}s`,
+              boxShadow: '0 0 4px rgba(255,215,0,0.8)'
+            }}
+          ></div>
+        ))}
+      </div>
 
       {/* Floating light particles */}
       {[...Array(25)].map((_, i) => (
@@ -34,21 +145,6 @@ export default function Hero() {
             boxShadow: Math.random() > 0.5 ? '0 0 6px rgba(216,178,110,0.3)' : '0 0 6px rgba(192,74,138,0.3)'
           }}
         ></div>
-      ))}
-
-      {/* Gold sparkles */}
-      {[...Array(10)].map((_, i) => (
-        <div
-          key={`sparkle-${i}`}
-          className="absolute animate-sparkle"
-          style={{
-            top: `${10 + Math.random() * 80}%`,
-            left: `${10 + Math.random() * 80}%`,
-            animationDelay: `${Math.random() * 3}s`
-          }}
-        >
-          <div className="w-1.5 h-1.5 bg-[#D8B26E] rounded-full shadow-[0_0_6px_#D8B26E]"></div>
-        </div>
       ))}
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 md:py-32 w-full">

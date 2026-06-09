@@ -116,3 +116,141 @@ body {
 .animate-sparkle {
   animation: sparkle 2s ease-in-out infinite;
 }
+
+/* Sunlight ray animation */
+@keyframes sunRay {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: rotate(var(--rotation)) scaleX(0.95);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: rotate(var(--rotation)) scaleX(1.05);
+  }
+}
+
+/* Sun glow pulse */
+@keyframes sunGlow {
+  0%, 100% { 
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+
+/* Floating particles */
+@keyframes floatUp {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.2; }
+  100% { transform: translateY(-10vh) translateX(30px); opacity: 0; }
+}
+
+/* Gold shimmer */
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(216, 178, 110, 0.15), transparent);
+  background-size: 200% 100%;
+  animation: goldShimmer 3s ease-in-out infinite;
+}
+
+/* Soft glow */
+@keyframes softGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(192, 74, 138, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(192, 74, 138, 0.4), 0 0 60px rgba(216, 178, 110, 0.2); }
+}
+
+.animate-soft-glow {
+  animation: softGlow 3s ease-in-out infinite;
+}
+
+/* Gentle float */
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-gentle-float {
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+/* Fade up */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animate-fade-up-delayed {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.animate-fade-up-delayed-2 {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+/* Hover lift */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(107, 45, 92, 0.1);
+}
+
+/* Sun glow pulse */
+@keyframes sunGlow {
+  0%, 100% { 
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* Sun rays animation */
+@keyframes sunRay {
+  0%, 100% { 
+    opacity: 0.4;
+    transform: rotate(var(--rotation, 0deg)) scaleX(0.95);
+  }
+  50% { 
+    opacity: 0.9;
+    transform: rotate(var(--rotation, 0deg)) scaleX(1.08);
+  }
+}
+
+/* Fine sun rays animation */
+@keyframes sunRayFine {
+  0%, 100% { 
+    opacity: 0.3;
+  }
+  50% { 
+    opacity: 1;
+  }
+}
+
+/* Floating particles */
+@keyframes floatUp {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.2; }
+  100% { transform: translateY(-10vh) translateX(30px); opacity: 0; }
+}
