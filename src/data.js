@@ -24,9 +24,9 @@ export const book = [
     status: "published",
     statusText: "Available Now",
     themes: ["Poetry", "Heart", "Reflection", "Life"],
-    purchaseLinks: [
-      { name: "Amazon", url: "#" }
-    ]
+    // purchaseLinks: [
+    //   { name: "Amazon", url: "#" }
+    // ]
   },
   {
     id: 2,
@@ -39,9 +39,9 @@ export const book = [
     status: "published",
     statusText: "Available Now",
     themes: ["Children's Safety", "Family", "Education", "Empowerment"],
-    purchaseLinks: [
-      { name: "Amazon", url: "#" }
-    ]
+    // purchaseLinks: [
+    //   { name: "Amazon", url: "#" }
+    // ]
   },
   {
     id: 3,
@@ -54,9 +54,9 @@ export const book = [
     status: "published",
     statusText: "Available Now",
     themes: ["Seguridad Infantil", "Familia", "Educación", "Bilingüe"],
-    purchaseLinks: [
-      { name: "Amazon", url: "#" }
-    ]
+    // purchaseLinks: [
+    //   { name: "Amazon", url: "#" }
+    // ]
   }
 ]
 
